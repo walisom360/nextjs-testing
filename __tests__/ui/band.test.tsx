@@ -15,3 +15,13 @@ test("rendering band page", async () => {
 
   expect(heading).toBeInTheDocument();
 });
+
+test("band component displays error", () => {
+  render(<BandComponent band={null} error={"EVERYTHING IS FINE"} />);
+
+  const heading = screen.getByRole("heading", {
+    name: /everything is fine/i,
+  });
+
+  expect(heading).toBeInTheDocument();
+});
